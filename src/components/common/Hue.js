@@ -14,8 +14,8 @@ export class Hue extends (PureComponent || Component) {
 
   handleMouseDown = (e) => {
     this.handleChange(e)
-    window.addEventListener('mousemove', this.handleChange)
-    window.addEventListener('mouseup', this.handleMouseUp)
+    this.container.ownerDocument.defaultView.addEventListener('mousemove', this.handleChange)
+    this.container.ownerDocument.defaultView.addEventListener('mouseup', this.handleMouseUp)
   }
 
   handleMouseUp = () => {
@@ -23,8 +23,8 @@ export class Hue extends (PureComponent || Component) {
   }
 
   unbindEventListeners() {
-    window.removeEventListener('mousemove', this.handleChange)
-    window.removeEventListener('mouseup', this.handleMouseUp)
+    this.container.ownerDocument.defaultView.removeEventListener('mousemove', this.handleChange)
+    this.container.ownerDocument.defaultView.removeEventListener('mouseup', this.handleMouseUp)
   }
 
   render() {
