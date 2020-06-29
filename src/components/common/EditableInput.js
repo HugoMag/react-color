@@ -28,7 +28,7 @@ export class EditableInput extends (PureComponent || Component) {
   componentWillReceiveProps(nextProps) {
     const input = this.input
     if (nextProps.value !== this.state.value) {
-      if (input === document.activeElement) {
+      if (input === this.input.ownerDocument.activeElement) {
         this.setState({ blurValue: String(nextProps.value).toUpperCase() })
       } else {
         this.setState({ value: String(nextProps.value).toUpperCase(), blurValue: !this.state.blurValue && String(nextProps.value).toUpperCase() })
