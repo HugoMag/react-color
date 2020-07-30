@@ -91,6 +91,7 @@ export const Block = ({ onChange, onSwatchHover, hex, colors, width, triangle,
         <BlockSwatches colors={ colors } onClick={ handleChange } onSwatchHover={ onSwatchHover } />
         <EditableInput
           style={{ input: styles.input }}
+          label="hex"
           value={ hex }
           onChange={ handleChange }
         />
